@@ -21,13 +21,18 @@ class Todo(db.Model):
 
 @app.route('/')
 def index():
+    # show all todos
+    todo_list = Todo.query.all()
+    print(todo_list)
     return render_template('base.html')
 
+
 # questo mi permette di fare run dal Pycharm
-
-
 if __name__ == "__main__":
     # creo il db
     db.create_all()
+    #new_todo = Todo(title="todo test 1", complete=False)
+    #db.session.add(new_todo)
+    #db.session.commit()
     # run dell'app
     app.run(debug=True)
