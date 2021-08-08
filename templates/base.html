@@ -17,5 +17,19 @@
         </div>
     </form>
 
+    {% for todo in todo_list %}
+
+        <p>{{ todo.id }} | {{ todo.title }} | {{ todo.complete }}</p>
+
+
+
+        {% if todo.complete == False %}
+            <span>Not completed</span>
+        {% else %}
+            <span>Completed</span>
+        {% endif %}
+
+    {% endfor %}
+
 </body>
 </html>
