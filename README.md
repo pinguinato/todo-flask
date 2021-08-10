@@ -7,4 +7,5 @@ Per poterla esguire e/o modificare è necessario aver installato:
 - Pip, il Python installer https://pip.pypa.io/en/stable/installation/, per installare tutti i moduli richiesti
 - Il framework Flask https://flask.palletsprojects.com/en/2.0.x/
 - Un qualsiasi editor di testo, meglio se in grado di visualizzare la sintassi Python/Flask tipo Visual Studio Code (https://code.visualstudio.com/), oppure Pycharm (https://www.jetbrains.com/pycharm/) opportunamente configurati
+- Semantic UI https://semantic-ui.com/
 
