@@ -6,6 +6,9 @@ Flask Tutorial - creazione di una app to do list
 from flask import Flask
 from flask import render_template
 from flask_sqlalchemy import SQLAlchemy
+from flask import request
+from flask import redirect
+from flask import url_for
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
@@ -27,12 +30,19 @@ def index():
     return render_template('base.html', todo_list=todo_list)
 
 
+@app.route("/add", methods=["POST"])
+def add():
+    # aggiunta di un nuovo task
+    title = request.form.get("title")
+    new_todo = Todo(title=title, complete=False)
+    db.session.add(new_todo)
+    db.session.commit()
+    return redirect(url_for("index"))
+
+
 # questo mi permette di fare run dal Pycharm
 if __name__ == "__main__":
     # creo il db
     db.create_all()
-    #new_todo = Todo(title="todo test 1", complete=False)
-    #db.session.add(new_todo)
-    #db.session.commit()
     # run dell'app
     app.run(debug=True)
