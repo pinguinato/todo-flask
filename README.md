@@ -9,3 +9,6 @@ Per poterla esguire e/o modificare è necessario aver installato:
 - Un qualsiasi editor di testo, meglio se in grado di visualizzare la sintassi Python/Flask tipo Visual Studio Code (https://code.visualstudio.com/), oppure Pycharm (https://www.jetbrains.com/pycharm/) opportunamente configurati
 - Semantic UI https://semantic-ui.com/
 
+Esempio risultato finale:
+
+![A test image](todo-flask-final.JPG)

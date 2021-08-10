@@ -9,32 +9,35 @@
     <script src="{{ url_for('static', filename='js/semantic.min.js') }}"></script>
 </head>
 <body>
-    <h1>Todo App</h1>
+<div class="ui container" style="margin-top: 50px;">
+    <h1 class="ui center aligned header">Todo App</h1>
 
-    <form action="/add" method="POST">
-        <div>
+    <form class="ui form" action="/add" method="POST">
+        <div class="field">
             <label for="title">Todo Title</label>
             <input type="text" name="title" placeholder="Enter ToDo...">
             <br>
-            <button type="submit" name="Add">Add</button>
+            <br>
+            <button class="ui blue button" type="submit" name="Add">Add</button>
         </div>
     </form>
+    <br>
 
     {% for todo in todo_list %}
-
-        <p>{{ todo.id }} | {{ todo.title }} | {{ todo.complete }}</p>
+    <div class="ui segment">
+        <p class="ui big header">{{ todo.id }} | {{ todo.title }}</p>
 
         {% if todo.complete == False %}
-            <span>Not completed</span>
+            <span class="ui gray label">Not completed</span>
         {% else %}
-            <span>Completed</span>
+            <span class="ui green label">Completed</span>
         {% endif %}
 
         <!-- update and delete buttons -->
-        <a href="/update/{{ todo.id }}">Update</a>
-        <a href="/delete/{{ todo.id }}">Delete</a>
-
+        <a class="ui blue button" href="/update/{{ todo.id }}">Update</a>
+        <a class="ui red button" href="/delete/{{ todo.id }}">Delete</a>
+    </div>
     {% endfor %}
-
+</div>
 </body>
 </html>
