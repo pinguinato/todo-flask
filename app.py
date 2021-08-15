@@ -19,6 +19,7 @@ db = SQLAlchemy(app)
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255))
+    details = db.Column(db.String(255))
     complete = db.Column(db.Boolean)
 
 
@@ -26,7 +27,6 @@ class Todo(db.Model):
 def index():
     # show all todos
     todo_list = Todo.query.all()
-    print(todo_list)
     return render_template('base.html', todo_list=todo_list)
 
 
@@ -34,7 +34,8 @@ def index():
 def add():
     # aggiunta di un nuovo task
     title = request.form.get("title")
-    new_todo = Todo(title=title, complete=False)
+    additional_details = request.form.get("details")
+    new_todo = Todo(title=title, details=additional_details, complete=False)
     db.session.add(new_todo)
     db.session.commit()
     return redirect(url_for("index"))
